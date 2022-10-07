@@ -12,19 +12,13 @@
 #include <string.h>
 #include <unistd.h>
 
-#define termios asmtermios
+#include <asm/termbits.h>
 
-#include <asm/termios.h>
-
-#undef termios
-
-#include <termios.h>
 #include <math.h>
 #include <pthread.h>
-#include <stropts.h>
 #include <endian.h>
 #include <stdint.h>
-
+#include <sys/ioctl.h>
 #include "rt/rt_serial.h"
 
 void init_serial_for_sbus(int fd, int baud) {
